@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fef3c7; /* Pompompurin yellow */
+    background-image: radial-gradient(#fde68a 20%, transparent 20%), radial-gradient(#fde68a 20%, transparent 20%);
+    background-position: 0 0, 25px 25px;
+    background-size: 50px 50px;
+    display: block; /* Removed flex to ensure scrolling works flawlessly everywhere */
+    min-height: 100vh;
+    color: #451a03; /* Deep brown */
+    overflow-x: hidden;
+    padding: 40px 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 30px rgba(120, 53, 15, 0.15);
+    text-align: center;
+    max-width: 650px;
+    width: 100%;
+    margin: 5vh auto; /* Centers horizontally and adds top margin */
+    backdrop-filter: blur(5px);
+    border: 4px solid #fbcfe8;
+    animation: float 4s ease-in-out infinite;
+    position: relative;
+    z-index: 10;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #78350f; /* Brown */
+    text-shadow: 2px 2px 0px #fbcfe8;
+}
+
+.main-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    border: 6px solid #fde68a;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    min-height: 60px;
+}
+
+.btn {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #f472b6; /* Cute pink */
+    color: white;
+    box-shadow: 0 8px 20px rgba(244, 114, 182, 0.4);
+    z-index: 2;
+}
+
+.btn-primary:hover {
+    transform: scale(1.1);
+    background-color: #ec4899;
+    box-shadow: 0 10px 25px rgba(244, 114, 182, 0.6);
+}
+
+.btn-secondary {
+    background-color: #e5e7eb;
+    color: #4b5563;
+    position: absolute;
+    right: 50px; /* Base position next to the primary button */
+    z-index: 100;
+    transition: left 0.4s ease-out, top 0.4s ease-out, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Adjust button placement for layout naturally */
+.buttons {
+    align-items: center;
+}
+
+.buttons .btn-primary {
+    position: relative;
+    left: -60px; /* offset to look centered with the 'No' button floating next to it */
+}
+
+.formal-contract {
+    background-color: #fffbeb;
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid #d97706;
+    text-align: justify;
+    color: #451a03;
+    font-family: 'Times New Roman', Times, serif; /* Formal font */
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.formal-contract h2 {
+    text-align: center;
+    color: #b45309;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.contract-section {
+    margin-bottom: 25px;
+}
+
+.contract-section h3 {
+    color: #92400e;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d97706;
+    padding-bottom: 5px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.contract-section p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.contract-section ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.contract-section li {
+    margin-bottom: 8px;
+}
+
+.clause {
+    margin-bottom: 15px;
+}
+
+.clause h4 {
+    color: #78350f;
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+}
+
+.signatures-area {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.signature-box {
+    text-align: center;
+    width: 250px;
+}
+
+.sig-line {
+    border-bottom: 2px solid #451a03;
+    margin-top: 10px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sig-line img {
+    max-height: 90px;
+    max-width: 240px;
+    object-fit: contain;
+}
+
+#ayled-signature {
+    cursor: crosshair;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+.btn-small {
+    position: absolute;
+    bottom: -35px;
+    right: 0;
+    background: #e5e7eb;
+    color: #4b5563;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.btn-small:hover {
+    background: #d1d5db;
+}
+
+.contract-date {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+/* --- PRINT SETTINGS FOR SAVING AS PDF --- */
+@media print {
+    body, html {
+        background: #fff !important;
+        background-image: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .buttons, #btn-download, #clear-ayled-sig, .title, .main-image {
+        display: none !important;
+    }
+    .container {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        animation: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        backdrop-filter: none !important;
+        background: #fff !important;
+    }
+    .heart {
+        display: none !important;
+    }
+    .formal-contract {
+        border: 2px solid #d97706 !important;
+        box-shadow: none !important;
+        padding: 20px !important;
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Floating hearts in the background */
+.heart {
+    position: fixed;
+    font-size: 24px;
+    opacity: 0.6;
+    animation: flyUp 5s linear infinite;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes flyUp {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+}
